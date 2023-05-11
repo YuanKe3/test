@@ -1,0 +1,14 @@
+{
+  "scripts": {},
+  "dependencies": {
+    "dayjs": "^1.11.6",
+    "exceljs": "^4.3.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "style-resources-loader": "^1.4.1",
+    "stylus": "^0.59.0",
+    "stylus-loader": "^7.1.0",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5"
+  }
+}

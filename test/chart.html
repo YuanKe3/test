@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="echarts.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="chart2" style="height: 244px; margin-top: 10px"></div>
+    <div id="chart1" style="height: 244px"></div>
+    <script type="text/javascript">
+      let x = ['', '', '', '', '', '', '']
+      let y = [0, 0, 0, 0, 0, 0, 0]
+
+      let rightValue = 0
+      let wrongValue = 0
+
+      if (window.nativeMethod) {
+        x = JSON.parse(nativeMethod.x())
+        y = JSON.parse(nativeMethod.y())
+
+        rightValue = nativeMethod.rightValue()
+        wrongValue = nativeMethod.wrongValue()
+      }
+
+      initChart1()
+      initChart2()
+
+      function initChart1() {
+        const myChart1 = echarts.init(document.getElementById('chart1'))
+        const option1 = {
+          title: {
+            // text: '七日内摔倒次数',
+            textStyle: {
+              color: '#2DC3FB',
+              fontWeight: 'bold',
+              fontSize: '16'
+            },
+            padding: [20, 0, 0, 0]
+          },
+          tooltip: {
+            backgroundColor: '#31516B',
+            opacity: 0.3,
+            trigger: 'axis',
+            axisPointer: {
+              // 焦点处样式
+              type: 'cross'
+            },
+            extraCssText: 'text-align: center;',
+            //在这里设置
+            formatter: '{b0}<br/>{c0}次',
+            textStyle: {
+              color: 'rgba(145, 201, 246, 1)'
+            }
+          },
+          legend: {
+            data: ['摔倒次数'],
+            textStyle: {
+              color: '#738CA0'
+            },
+            itemWidth: 10,
+            itemHeight: 10,
+            icon: 'rect',
+            right: 16,
+            top: 16
+          },
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+          },
+          xAxis: {
+            type: 'category',
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              color: '#20dbfd',
+              interval: 0
+            },
+            axisLine: {
+              lineStyle: {
+                color: '#20dbfd'
+              }
+            },
+            data: x
+          },
+          yAxis: {
+            type: 'value',
+            min: 0,
+            interval: 1,
+            // max: 100,
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              // 折线下方阴影
+              color: '#20dbfd'
+            },
+            axisLine: {
+              // 坐标轴线
+              lineStyle: {
+                color: '#20dbfd'
+              }
+            },
+            splitLine: {
+              // y轴 辅助线
+              show: false
+            }
+          },
+          series: [
+            {
+              name: '摔倒次数',
+              type: 'line',
+              smooth: false,
+              stack: '摔倒次数',
+              symbol: 'circle', // 拐点为实心的 默认为空心
+              itemStyle: {
+                color: '#72F5FF'
+              },
+              lineStyle: {
+                shadowBlur: 5,
+                color: '#17D5E3',
+                shadow: '0px 5px 1px 0px rgba(0, 0, 0, 0.41)'
+              },
+              areaStyle: {
+                opacity: 0.5,
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: 'rgba(13, 182, 252, 0.5)'
+                  },
+                  {
+                    offset: 1,
+                    color: 'rgba(13, 182, 252, 0)'
+                  }
+                ])
+              },
+              data: y
+            }
+          ]
+        }
+        myChart1.setOption(option1)
+      }
+
+      function initChart2() {
+        const myChart2 = echarts.init(document.getElementById('chart2'))
+        const option2 = {
+          title: {
+            x: 'center'
+          },
+          tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)'
+          },
+          legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['正确报警', '误报']
+          },
+          series: [
+            {
+              name: '报警情况',
+              type: 'pie',
+              radius: '55%',
+              center: ['50%', '60%'],
+              data: [
+                { value: rightValue, name: '正确报警' },
+                { value: wrongValue, name: '误报' }
+              ],
+              itemStyle: {
+                emphasis: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              }
+            }
+          ]
+        }
+        myChart2.setOption(option2)
+      }
+    </script>
+  </body>
+</html>

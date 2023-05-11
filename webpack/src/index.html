@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="../public/favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>webpack</title>
+  <style>
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      margin: 0 auto;
+      width: 300px;
+    }
+
+    #container {
+      width: 400px;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="navbar_item">
+      <a href="#/page1" class="page1">page1</a>
+    </nav>
+    <nav class="navbar_item">
+      <a href="#/page2" class="page2">page2</a>
+    </nav>
+    <nav class="navbar_item">
+      <a href="#/page3" class="page3">page3</a>
+    </nav>
+  </header>
+  <main id="container"></main>
+  <footer>
+    <button>发送</button>
+  </footer>
+
+  <script>
+    class HashRouter {
+      constructor(dom) {
+        this.hashObj = {}
+      }
+      register(...paths) {
+        paths.forEach(path => {
+          this.hashObj[path] = path
+        })
+      }
+      async getData(path) {
+        if (path === '/page1') {
+          const url = '/test1.json'
+          const resp = await fetch('/test1.json')
+          const res = await resp.json()
+          return res
+        } else if (path === '/page2') {
+          const url = '/test2.json'
+          const resp = await fetch('/test2.json')
+          const res = await resp.json()
+          return res
+        } else if (path === '/page3') {
+          const url = '/test3.json'
+          const resp = await fetch('/test3.json')
+          const res = await resp.json()
+          return res
+        }
+      }
+      appendData(dom, data) {
+        const containerDom = document.querySelector(dom)
+        containerDom.innerHTML = ''
+        const titleDom = document.createElement('h1')
+        titleDom.innerHTML = data.title
+        const dataDom = document.createElement('div')
+        dataDom.innerHTML = data.data
+        const descDom = document.createElement('div')
+        descDom.innerHTML = data.desc
+        containerDom.append(titleDom, dataDom, descDom)
+      }
+    }
+
+    const hashRouter = new HashRouter('#container')
+    hashRouter.register('/page1', '/page2', '/page3')
+    window.addEventListener('load', async function (e) {
+      if (!location.hash) {
+        // 进入如果没有哈西路由
+        location.href = 'http://localhost:3000/#/page1'
+        const data = await hashRouter.getData('/page1')
+        hashRouter.appendData('#container', data)
+      } else {
+        // 如果有哈西路由且刷新了
+        const path = location.hash.substring(1)
+        if (path && hashRouter.hashObj[path]) {
+          const data = await hashRouter.getData(path)
+          hashRouter.appendData('#container', data)
+        }
+      }
+    })
+    window.addEventListener('hashchange', async function (e) {
+      const path = e.newURL.split('#')[1]
+      if (path && hashRouter.hashObj[path]) {
+        const data = await hashRouter.getData(path)
+        hashRouter.appendData('#container', data)
+      }
+    })
+  </script>
+</body>
+
+</html>

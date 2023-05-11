@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+  .rrr {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    display: flex;
+  }
+}

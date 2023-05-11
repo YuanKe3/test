@@ -1,0 +1,51 @@
+{
+  "filename": "我的报表",
+  "sheetName": "sheet1",
+  "sheetDescript": [
+    "人口统计",
+    "创建人: https://guofengs.com",
+    "创建时间: 2019/12/03",
+    "统计时间范围: 2019/12/03~2019/12/31"
+  ],
+  "header": [
+    {
+      "id": "id"
+    },
+    {
+      "name": "名字"
+    },
+    {
+      "email": "电子邮件"
+    },
+    {
+      "addr": "地址"
+    }
+  ],
+  "contentLists": [
+    {
+      "id": "1",
+      "name": "张三",
+      "email": "1@zs.com",
+      "addr": "上海市浦东新区"
+    },
+    {
+      "id": "2",
+      "name": "李四",
+      "email": "1@ls.com",
+      "addr": "上海市浦东新区"
+    },
+    {
+      "id": "3",
+      "name": "王五",
+      "email": "1@ww.com",
+      "addr": "上海市浦东新区"
+    },
+
+    {
+      "id": "3",
+      "name": "赵六",
+      "email": "1@zl.com",
+      "addr": "上海市浦东新区"
+    }
+  ]
+}

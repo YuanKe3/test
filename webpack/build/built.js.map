@@ -1,0 +1,1 @@
+{"version":3,"file":"built.js","mappings":";;;;;AAAA,IAAIA,CAAC,GAAW,GAAhB;AACAC,OAAO,CAACC,GAAR,CAAYF,CAAZ,E","sources":["webpack://webpack/./src/index.ts"],"sourcesContent":["let a: number = 188\r\nconsole.log(a)\r\n"],"names":["a","console","log"],"sourceRoot":""}

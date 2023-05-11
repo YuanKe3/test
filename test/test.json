@@ -1,0 +1,72 @@
+{
+  "id": "1288813530412544001",
+  "name": "zhaokexin",
+  "realName": "赵可心",
+  "mobile": "1571***1068",
+  "officePhone": "010-68767587",
+  "deptId": "936",
+  "deptName": "综合办公室",
+  "userDeptPositionList": [
+    {
+      "id": "1491694265808580610",
+      "createBy": "蚊子测试",
+      "createById": "1443259440542298114",
+      "createTime": "2022-02-10T08:43:22.000+0000",
+      "updateBy": null,
+      "updateById": null,
+      "updateTime": null,
+      "del": null,
+      "userId": "1288813530412544001",
+      "deptPositionId": "1443222787354333185",
+      "positionName": "行政助理"
+    }
+  ],
+  "userManageDeptsList": [],
+  "sysUserRoleList": [
+    {
+      "id": "1599680279218233346",
+      "createBy": "彭财测试",
+      "createById": "1468858522178449410",
+      "createTime": "2022-12-05T08:21:14.000+0000",
+      "updateBy": null,
+      "updateById": null,
+      "updateTime": null,
+      "del": null,
+      "userId": "1288813530412544001",
+      "roleId": "1437956063281299457",
+      "sysRoleName": "测试角色"
+    },
+    {
+      "id": "1443237629515599874",
+      "createBy": "超管",
+      "createById": "1",
+      "createTime": "2021-09-29T15:34:00.000+0000",
+      "updateBy": null,
+      "updateById": null,
+      "updateTime": null,
+      "del": null,
+      "userId": "1288813530412544001",
+      "roleId": "1443234105427824641",
+      "sysRoleName": "普通员工"
+    },
+    {
+      "id": "1599680327305928705",
+      "createBy": "彭财测试",
+      "createById": "1468858522178449410",
+      "createTime": "2022-12-05T08:21:25.000+0000",
+      "updateBy": null,
+      "updateById": null,
+      "updateTime": null,
+      "del": null,
+      "userId": "1288813530412544001",
+      "roleId": "1443248003111538689",
+      "sysRoleName": "管理员"
+    }
+  ],
+  "status": 1,
+  "passwordB": true,
+  "avatar": "abc",
+  "company": "资产公司本部",
+  "companyId": "825",
+  "positions": "行政助理"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "mainClass": "com.example.App",
+      "projectName": "demo"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "debug ts",
+      "runtimeArgs": ["-r", "C:\\Program Files\\nodejs\\node_modules\\ts-node\\register"],
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${file}"
+    }
+  ]
+}

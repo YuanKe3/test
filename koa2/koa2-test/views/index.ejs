@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>演示</title>
+  </head>
+  <body>
+    <div>
+      <img class="pic" src="<%= picture%>" width="100px">
+      <input class="inp" type="file">
+    </div>
+
+    <script>
+      document.querySelector('.inp').addEventListener('change', function(e) {
+        let file = e.target.files
+        if (!file.length) return
+        let formData = new FormData()
+        formData.append('file', file[0])
+        fetch('/api/utils/upload', {
+          method: 'post',
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            response.json().then(res => {
+              console.log(res)
+              document.querySelector('.pic').src = res.url
+            })
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
